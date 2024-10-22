@@ -1,0 +1,341 @@
+<html>
+  <head>
+    <title>PAWSOME</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      .header {
+        background-color: #0033cc;
+        color: white;
+        padding: 10px 0;
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .header img {
+        height: 50px;
+        margin-left: 20px;
+      }
+      .header h1 {
+        margin: 0;
+        font-size: 24px;
+      }
+      .nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .nav a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        font-size: 14px;
+      }
+      .nav a:hover {
+        background-color: #002080;
+      }
+      .main-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        background-color: #f2f2f2;
+        position: relative;
+        flex: 1;
+      }
+      .main-content img {
+        height: 200px;
+        margin-right: 20px;
+      }
+      .welcome-text {
+        background-color: #d9d9d9;
+        padding: 20px;
+        border-radius: 5px;
+        text-align: left;
+        max-width: 600px;
+      }
+      .welcome-text h2 {
+        margin-top: 0;
+      }
+      .footer {
+        background-color: #0033cc;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        font-size: 12px;
+      }
+      .calendar {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: white;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .calendar table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .calendar th {
+        background-color: #0033cc;
+        color: white;
+        padding: 5px;
+      }
+      .calendar td {
+        text-align: center;
+        padding: 5px;
+        border: 1px solid #ddd;
+      }
+      .calendar td.highlight {
+        outline: rgb(24, 70, 219) dashed 2px;
+        background-color: rgb(191, 203, 245);
+      }
+      .calendar div {
+        text-align: center;
+        margin-top: 10px;
+      }
+      .calendar .nav-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+      }
+      .calendar .nav-buttons i {
+        padding: 5px 10px;
+        background-color: #0033cc;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      .calendar .nav-buttons i:hover {
+        background-color: #002080;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <img
+        alt="Pawsome Logo"
+        height="50"
+        src="https://storage.googleapis.com/a1aa/image/SlYP5QIfPxz4LauuU9KJvzE1nN60KLoz88ywv0uniLhj3n0JA.jpg"
+        width="50"
+      />
+      <h1>PAWSOME</h1>
+      <div class="nav">
+        <a href="#">
+          <i class="fas fa-home"> </i>
+          HOME
+        </a>
+        <a href="PetRegistration.html">
+          <i class="fas fa-paw"> </i>
+          Pet Registration
+        </a>
+        <a href="PetProfiles.html">
+          <i class="fas fa-dog"> </i>
+          Pet Profiles
+        </a>
+        <a href="DogPopulation.html">
+          <i class="fas fa-chart-bar"> </i>
+          Dog Population
+        </a>
+        <a href="PetSchedule.html">
+          <i class="fas fa-calendar-alt"> </i>
+          Pet Schedule
+        </a>
+        <a href="LostAndFound.html">
+          <i class="fas fa-search"> </i>
+          Lost and Found Program
+        </a>
+        <a href="EducationalResources.html">
+          <i class="fas fa-book"> </i>
+          Educational Resource
+        </a>
+      </div>
+    </div>
+    <div class="main-content">
+      <img
+        alt="Happy dog sitting"
+        height="200"
+        src="https://storage.googleapis.com/a1aa/image/NJc2eFPV8eufwphdv4q2yB92McDckeCf0feyvD7YWbEyk3n0JA.jpg"
+        width="200"
+      />
+      <div class="welcome-text">
+        <h2>Welcome Juan Dela Cruz!</h2>
+        <p>
+          We're thrilled to have you join our community dedicated to responsible
+          pet ownership and anti-rabies management. With PAWSOME, you can easily
+          register your pets, keep track of their vaccination status, and access
+          important resources to ensure their health and safety. Together, we
+          can make a significant impact in controlling rabies and safeguarding
+          our neighborhoods. Thank you for being a proactive and caring pet
+          owner!
+        </p>
+      </div>
+      <div class="calendar">
+        <div class="nav-buttons">
+          <i class="fas fa-chevron-left" onclick="prevMonth()"> </i>
+          <i class="fas fa-chevron-right" onclick="nextMonth()"> </i>
+        </div>
+        <table id="calendar-table">
+          <thead>
+            <tr>
+              <th colspan="7" id="calendar-month">October 2024</th>
+            </tr>
+            <tr>
+              <th>Sun</th>
+              <th>Mon</th>
+              <th>Tue</th>
+              <th>Wed</th>
+              <th>Thu</th>
+              <th>Fri</th>
+              <th>Sat</th>
+            </tr>
+          </thead>
+          <tbody id="calendar-body">
+            <tr>
+              <td></td>
+              <td></td>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>7</td>
+              <td>8</td>
+              <td>9</td>
+              <td>10</td>
+              <td>11</td>
+              <td>12</td>
+            </tr>
+            <tr>
+              <td>13</td>
+              <td>14</td>
+              <td>15</td>
+              <td>16</td>
+              <td>17</td>
+              <td>18</td>
+              <td>19</td>
+            </tr>
+            <tr>
+              <td>20</td>
+              <td>21</td>
+              <td class="highlight">22</td>
+              <td>23</td>
+              <td>24</td>
+              <td>25</td>
+              <td>26</td>
+            </tr>
+            <tr>
+              <td>27</td>
+              <td>28</td>
+              <td>29</td>
+              <td>30</td>
+              <td>31</td>
+            </tr>
+          </tbody>
+        </table>
+        <div id="calendar-time">Time: 2:43:26 PM</div>
+      </div>
+    </div>
+    <div class="footer">
+      Provincial Veterinary Office
+      <br />
+      Email: pvo@marinduque.gov.ph
+      <br />
+      Contact No: (042) 871-3451, Globe: 09456250184, Emart: 0939-689-2217
+      <br />
+      Office Address: Bangbangalon, Boac, Marinduque
+    </div>
+    <script>
+      let currentMonth = new Date().getMonth();
+      let currentYear = new Date().getFullYear();
+
+      function generateCalendar(month, year) {
+        const calendarBody = document.getElementById("calendar-body");
+        const calendarMonth = document.getElementById("calendar-month");
+        const calendarTime = document.getElementById("calendar-time");
+        const date = new Date();
+        const today = date.getDate();
+        const firstDay = new Date(year, month, 1).getDay();
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+        const monthNames = [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
+        ];
+
+        calendarMonth.textContent = monthNames[month] + " " + year;
+        calendarTime.textContent = "Time: " + date.toLocaleTimeString();
+
+        calendarBody.innerHTML = "";
+        let row = document.createElement("tr");
+        for (let i = 0; i < firstDay; i++) {
+          let cell = document.createElement("td");
+          row.appendChild(cell);
+        }
+        for (let day = 1; day <= daysInMonth; day++) {
+          if ((firstDay + day - 1) % 7 === 0) {
+            calendarBody.appendChild(row);
+            row = document.createElement("tr");
+          }
+          let cell = document.createElement("td");
+          cell.textContent = day;
+          if (
+            day === today &&
+            month === date.getMonth() &&
+            year === date.getFullYear()
+          ) {
+            cell.classList.add("highlight");
+          }
+          row.appendChild(cell);
+        }
+        calendarBody.appendChild(row);
+      }
+
+      function prevMonth() {
+        currentMonth--;
+        if (currentMonth < 0) {
+          currentMonth = 11;
+          currentYear--;
+        }
+        generateCalendar(currentMonth, currentYear);
+      }
+
+      function nextMonth() {
+        currentMonth++;
+        if (currentMonth > 11) {
+          currentMonth = 0;
+          currentYear++;
+        }
+        generateCalendar(currentMonth, currentYear);
+      }
+
+      generateCalendar(currentMonth, currentYear);
+      setInterval(() => generateCalendar(currentMonth, currentYear), 60000); // Update the calendar every minute
+    </script>
+  </body>
+</html>

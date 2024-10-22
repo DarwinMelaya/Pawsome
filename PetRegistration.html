@@ -1,0 +1,286 @@
+<html>
+  <head>
+    <title>PAWSOME</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background-color: #f4f4f4;
+      }
+      .header {
+        background-color: #0033cc;
+        color: white;
+        padding: 10px 0;
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .header img {
+        height: 50px;
+        margin-left: 20px;
+      }
+      .header h1 {
+        margin: 0;
+        font-size: 24px;
+      }
+      .nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .nav a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        font-size: 14px;
+      }
+      .nav a:hover {
+        background-color: #002080;
+      }
+      .nav a.active {
+        background-color: #002080;
+      }
+      .container {
+        padding: 20px;
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+      }
+      .form-container {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 800px;
+      }
+      .form-section {
+        margin-bottom: 20px;
+      }
+      .form-section h2 {
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: #0033cc;
+      }
+      .form-section label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+      .form-section input[type="text"],
+      .form-section input[type="date"],
+      .form-section input[type="file"],
+      .form-section select {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      .form-section input[type="checkbox"],
+      .form-section input[type="radio"] {
+        margin-right: 10px;
+      }
+      .form-section .inline {
+        display: inline-block;
+        margin-right: 20px;
+      }
+      .form-section .inline input {
+        width: auto;
+      }
+      .form-section .inline label {
+        display: inline;
+      }
+      .form-section .submit-btn {
+        background-color: #0033cc;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      .form-section .submit-btn:hover {
+        background-color: #002080;
+      }
+      .footer {
+        background-color: #0033cc;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <img
+        alt="Pawsome Logo"
+        height="50"
+        src="https://storage.googleapis.com/a1aa/image/6eEoOBuNZZwIMSrDsQnUNUiDfVIOWxBYHkXEQPmV1Eul2PpTA.jpg"
+        width="50"
+      />
+      <h1>PAWSOME</h1>
+      <div class="nav">
+        <a href="Home.html"><i class="fas fa-home"></i> HOME</a>
+        <a class="active" href="#"
+          ><i class="fas fa-paw"></i> Pet Registration</a
+        >
+        <a href="PetProfiles.html"><i class="fas fa-dog"></i> Pet Profiles</a>
+        <a href="DogPopulation.html"
+          ><i class="fas fa-chart-bar"></i> Dog Population</a
+        >
+        <a href="PetSchedule.html"
+          ><i class="fas fa-calendar-alt"></i> Pet Schedule</a
+        >
+        <a href="LostAndFound.html"
+          ><i class="fas fa-search"></i> Lost and Found Program</a
+        >
+        <a href="EducationalResources.html"
+          ><i class="fas fa-book"></i> Educational Resource</a
+        >
+      </div>
+    </div>
+    <div class="container">
+      <div class="form-container">
+        <form>
+          <div class="form-section">
+            <h2>PET REGISTRATION</h2>
+            <label>Pet Origin:</label>
+            <div class="inline">
+              <input name="origin" type="radio" value="local" /> Local
+            </div>
+            <div class="inline">
+              <input name="origin" type="radio" value="others" /> Others
+            </div>
+            <input placeholder="Specify Origin" type="text" />
+            <label>Ownership:</label>
+            <div class="inline">
+              <input name="ownership" type="radio" value="household" />
+              Household
+            </div>
+            <div class="inline">
+              <input name="ownership" type="radio" value="community" />
+              Community
+            </div>
+          </div>
+          <div class="form-section">
+            <h2>DETAILED INFORMATION</h2>
+            <label>Habitat:</label>
+            <div class="inline">
+              <input name="habitat" type="radio" value="caged" /> Caged
+            </div>
+            <div class="inline">
+              <input name="habitat" type="radio" value="free_roaming" /> Free
+              Roaming
+            </div>
+            <div class="inline">
+              <input name="habitat" type="radio" value="leased" /> Leased
+            </div>
+            <div class="inline">
+              <input name="habitat" type="radio" value="house_only" /> House
+              Only
+            </div>
+            <label>Image:</label>
+            <input name="image" type="file" />
+            <label>Pet Name:</label>
+            <input name="pet_name" type="text" />
+            <label>Breed:</label>
+            <input name="breed" type="text" />
+            <label>Date Of Birth:</label>
+            <input name="dob" type="date" />
+            <label>Animal Color:</label>
+            <input name="color" type="text" />
+            <label>Sex:</label>
+            <div class="inline">
+              <input name="sex" type="radio" value="male" /> Male
+            </div>
+            <div class="inline">
+              <input name="sex" type="radio" value="female" /> Female
+            </div>
+            <label>If Female:</label>
+            <div class="inline">
+              <input name="pregnant" type="checkbox" /> Pregnant
+            </div>
+            <div class="inline">
+              <input name="lactating" type="checkbox" /> Lactating with puppies
+            </div>
+            <input placeholder="No of Puppies" type="text" />
+            <label>Weight:</label>
+            <input name="weight" type="text" />
+            <label>Tag:</label>
+            <div class="inline">
+              <input name="tag" type="checkbox" value="collar_tag" /> Collar Tag
+            </div>
+            <div class="inline">
+              <input name="tag" type="checkbox" value="microchip" /> Microchip
+            </div>
+            <div class="inline">
+              <input name="tag" type="checkbox" value="tattoo_code" /> Tattoo
+              Code
+            </div>
+            <div class="inline">
+              <input name="tag" type="checkbox" value="others" /> Others
+            </div>
+            <input placeholder="Tag No." type="text" />
+          </div>
+          <div class="form-section">
+            <h2>CONTACT WITH OTHER ANIMALS:</h2>
+            <div class="inline">
+              <input name="contact" type="radio" value="frequent" /> Frequent
+            </div>
+            <div class="inline">
+              <input name="contact" type="radio" value="seldom" /> Seldom
+            </div>
+            <div class="inline">
+              <input name="contact" type="radio" value="never" /> Never
+            </div>
+          </div>
+          <div class="form-section">
+            <h2>VACCINATION SERVICE</h2>
+            <label>Date Vaccinated:</label>
+            <input name="date_vaccinated" type="date" />
+            <label>Vaccinated by:</label>
+            <input name="vaccinated_by" type="text" />
+            <label>Vaccine Stock No.:</label>
+            <input name="vaccine_stock_no" type="text" />
+            <label>Vaccine Source:</label>
+            <input name="vaccine_source" type="text" />
+            <label>Vaccine Type:</label>
+            <input name="vaccine_type" type="text" />
+            <label>Vaccination Remarks:</label>
+            <input name="vaccination_remarks" type="text" />
+          </div>
+          <div class="form-section">
+            <h2>ACTIVITY SERVICE</h2>
+            <label>Activity:</label>
+            <input name="activity" type="text" />
+            <label>Remarks:</label>
+            <input name="remarks" type="text" />
+          </div>
+          <div class="form-section">
+            <button class="submit-btn" type="submit">SUBMIT</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="footer">
+      Provincial Veterinary Office
+      <br />
+      Email: pvo@marinduque.gov.ph
+      <br />
+      Contact No: (042) 871-3451, Globe: 09456250184, Emart: 0939-689-2217
+      <br />
+      Office Address: Bangbangalon, Boac, Marinduque
+    </div>
+  </body>
+</html>

@@ -1,0 +1,169 @@
+<html>
+  <head>
+    <title>PAWSOME - Sign Up</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .header {
+        background-color: #0052cc;
+        color: white;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .header img {
+        height: 40px;
+        margin-right: 10px;
+      }
+      .header .title {
+        display: flex;
+        align-items: center;
+      }
+      .header .buttons {
+        display: flex;
+        gap: 10px;
+      }
+      .header .buttons button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s, box-shadow 0.3s;
+      }
+      .header .buttons button:hover {
+        background-color: #0056b3;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      .main {
+        background-color: #000066;
+        height: calc(100vh - 60px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .main img {
+        height: 100px;
+        margin-bottom: 20px;
+      }
+      .signup-box {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 300px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .signup-box h2 {
+        margin-bottom: 20px;
+      }
+      .signup-box .input-group {
+        margin-bottom: 15px;
+        position: relative;
+      }
+      .signup-box .input-group input {
+        width: 100%;
+        padding: 10px;
+        padding-left: 40px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .signup-box .input-group .icon {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #666;
+      }
+      .signup-box button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        width: 100%;
+        transition: background-color 0.3s, box-shadow 0.3s;
+      }
+      .signup-box button:hover {
+        background-color: #0056b3;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      .footer {
+        background-color: #0052cc;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        font-size: 12px;
+        box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="title">
+        <img
+          alt="Paw icon"
+          height="40"
+          src="https://storage.googleapis.com/a1aa/image/ulWNzzgG4HoZL9m5alxMjEQ76Nems8luOyUjh88duJFIrn0JA.jpg"
+          width="40"
+        />
+        <h1>PAWSOME</h1>
+      </div>
+      <div class="buttons">
+        <a href="#"><button>Sign In</button></a>
+        <a href="index.html"> <button>Log In</button></a>
+      </div>
+    </div>
+    <div class="main">
+      <img
+        alt="Emergency Response Team logo"
+        height="100"
+        src="https://storage.googleapis.com/a1aa/image/StAtSeXesBlofo90PuZd6ndx68C1AeWlUPBSDlMFxkCHZ9kOB.jpg"
+        width="100"
+      />
+      <div class="signup-box">
+        <h2>Sign Up</h2>
+        <div class="input-group">
+          <i class="fas fa-user icon"> </i>
+          <input placeholder="Username" type="text" />
+        </div>
+        <div class="input-group">
+          <i class="fas fa-envelope icon"> </i>
+          <input placeholder="E-mail" type="email" />
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock icon"> </i>
+          <input placeholder="Password" type="password" />
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock icon"> </i>
+          <input placeholder="Confirm Password" type="password" />
+        </div>
+        <button>Sign Up</button>
+      </div>
+    </div>
+    <div class="footer">
+      <p>
+        Provincial Veterinary Office
+        <br />
+        Email: pvboet@yahoo.com
+        <br />
+        Contact No: (02) 8711-4975, (Globe) 09544552018, (Smart) 0935-643-3217
+        <br />
+        Office Address: Bangbangalon, Boac, Marinduque
+      </p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,207 @@
+<html>
+  <head>
+    <title>Pawsome - Dog Population</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      .header {
+        background-color: #0033cc;
+        color: white;
+        padding: 10px 0;
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .header img {
+        height: 50px;
+        margin-left: 20px;
+      }
+      .header h1 {
+        margin: 0;
+        font-size: 24px;
+      }
+      .nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .nav a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        font-size: 14px;
+      }
+      .nav a:hover {
+        background-color: #002080;
+      }
+      .nav a.active {
+        background-color: #000099;
+      }
+      .content {
+        padding: 20px;
+        text-align: center;
+        flex: 1;
+      }
+      .content h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+      .map {
+        display: inline-block;
+        border: 1px solid #000;
+        margin-right: 20px;
+      }
+      .map iframe {
+        width: 400px;
+        height: 300px;
+        border: 0;
+      }
+      .table-container {
+        display: inline-block;
+        vertical-align: top;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+      th {
+        background-color: #0033cc;
+        color: white;
+      }
+      .footer {
+        background-color: #0033cc;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <img
+        alt="Pawsome Logo"
+        height="50"
+        src="https://storage.googleapis.com/a1aa/image/1JFpqrli0F7WOxBtpbps1cpSGDYocaGFsXvtIUJaLeJRGo0JA.jpg"
+        width="50"
+      />
+      <h1>PAWSOME</h1>
+      <div class="nav">
+        <a href="Home.html">
+          <i class="fas fa-home"> </i>
+          HOME
+        </a>
+        <a href="PetRegistration.html">
+          <i class="fas fa-paw"> </i>
+          Pet Registration
+        </a>
+        <a href="PetProfiles.html">
+          <i class="fas fa-dog"> </i>
+          Pet Profiles
+        </a>
+        <a class="active" href="DogPopulation.html">
+          <i class="fas fa-chart-bar"> </i>
+          Dog Population
+        </a>
+        <a href="PetSchedule.html">
+          <i class="fas fa-calendar-alt"> </i>
+          Pet Schedule
+        </a>
+        <a href="LostAndFound.html">
+          <i class="fas fa-search"> </i>
+          Lost and Found Program
+        </a>
+        <a href="EducationalResources.html">
+          <i class="fas fa-book"> </i>
+          Educational Resource
+        </a>
+      </div>
+    </div>
+    <div class="content">
+      <h2>DOG POPULATION</h2>
+      <div class="map">
+        <iframe
+          allowfullscreen=""
+          height="300"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124203.91546799424!2d121.81348255046768!3d13.389254707941673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a32569547dcdad%3A0xc3e259596f192071!2sBoac%2C%20Marinduque!5e0!3m2!1sen!2sph!4v1729581913738!5m2!1sen!2sph"
+          style="border: 0"
+          width="400"
+        >
+        </iframe>
+      </div>
+      <div class="table-container">
+        <table>
+          <tr>
+            <th>BARANGAY</th>
+            <th>DOGS</th>
+            <th>VACCINATED</th>
+            <th>UNVACCINATED</th>
+            <th></th>
+          </tr>
+          <tr>
+            <td>Balanacan</td>
+            <td>215</td>
+            <td>123</td>
+            <td>92</td>
+            <td>
+              <i class="fas fa-search"> </i>
+            </td>
+          </tr>
+          <tr>
+            <td>Bangbangalon</td>
+            <td>123</td>
+            <td>123</td>
+            <td>0</td>
+            <td>
+              <i class="fas fa-search"> </i>
+            </td>
+          </tr>
+          <tr>
+            <td>Laylay</td>
+            <td>123</td>
+            <td>123</td>
+            <td>0</td>
+            <td>
+              <i class="fas fa-search"> </i>
+            </td>
+          </tr>
+          <tr>
+            <td>Isok</td>
+            <td>123</td>
+            <td>123</td>
+            <td>0</td>
+            <td>
+              <i class="fas fa-search"> </i>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="footer">
+      Provincial Veterinary Office
+      <br />
+      Email: pvetboac@yahoo.com
+      <br />
+      Contact No: (02) 811-6875, (Globe) 09454552018, (Smart) 0939-649-3217
+      <br />
+      Office Address: Bangbangalon, Boac, Marinduque
+    </div>
+  </body>
+</html>

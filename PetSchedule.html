@@ -1,0 +1,415 @@
+<html>
+  <head>
+    <title>Pawsome - Pet Schedule</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      .header {
+        background-color: #0033cc;
+        color: white;
+        padding: 10px 0;
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .header img {
+        height: 50px;
+        margin-left: 20px;
+      }
+      .header h1 {
+        margin: 0;
+        font-size: 24px;
+      }
+      .nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .nav a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        font-size: 14px;
+      }
+      .nav a:hover {
+        background-color: #002080;
+      }
+      .nav a.active {
+        background-color: #000099;
+      }
+      .content {
+        padding: 20px;
+        text-align: center;
+        flex: 1;
+      }
+      .content h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+      .calendar {
+        display: inline-block;
+        border: 1px solid #000;
+        margin-right: 20px;
+        width: 80%;
+      }
+      .calendar table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .calendar th,
+      .calendar td {
+        border: 1px solid #ddd;
+        padding: 15px;
+        text-align: center;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .calendar th {
+        background-color: #0033cc;
+        color: white;
+      }
+      .calendar .highlight {
+        background-color: #d9d9d9;
+      }
+      .nav-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+      .nav-buttons button {
+        background-color: #0033cc;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      .nav-buttons button:hover {
+        background-color: #002080;
+      }
+      .footer {
+        background-color: #0033cc;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        font-size: 12px;
+      }
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.4);
+        padding-top: 60px;
+      }
+      .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 500px;
+      }
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+      .close:hover,
+      .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .form-group {
+        margin-bottom: 15px;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      .form-group input,
+      .form-group select {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+      }
+      .form-group button {
+        background-color: #0033cc;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      .form-group button:hover {
+        background-color: #002080;
+      }
+    </style>
+    <script>
+      let currentMonth = new Date().getMonth();
+      let currentYear = new Date().getFullYear();
+
+      const events = [
+        {
+          date: "2023-10-01",
+          time: "09:00 AM",
+          activity: "Vaccination Drive",
+          location: "Barangay Hall",
+        },
+        {
+          date: "2023-10-05",
+          time: "10:00 AM",
+          activity: "Pet Adoption Event",
+          location: "Community Center",
+        },
+        {
+          date: "2023-10-10",
+          time: "01:00 PM",
+          activity: "Free Check-up",
+          location: "Veterinary Clinic",
+        },
+        {
+          date: "2023-10-15",
+          time: "08:00 AM",
+          activity: "Spay/Neuter Program",
+          location: "Animal Shelter",
+        },
+      ];
+
+      function generateCalendar(month, year) {
+        const calendarBody = document.getElementById("calendar-body");
+        const calendarMonth = document.getElementById("calendar-month");
+        const firstDay = new Date(year, month, 1).getDay();
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+        const monthNames = [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
+        ];
+
+        calendarMonth.textContent = monthNames[month] + " " + year;
+        calendarBody.innerHTML = "";
+
+        let row = document.createElement("tr");
+        for (let i = 0; i < firstDay; i++) {
+          let cell = document.createElement("td");
+          row.appendChild(cell);
+        }
+
+        for (let day = 1; day <= daysInMonth; day++) {
+          if ((firstDay + day - 1) % 7 === 0) {
+            calendarBody.appendChild(row);
+            row = document.createElement("tr");
+          }
+          let cell = document.createElement("td");
+          cell.textContent = day;
+          cell.onclick = function () {
+            openModal(day, month, year);
+          };
+
+          const event = events.find(
+            (e) =>
+              new Date(e.date).getDate() === day &&
+              new Date(e.date).getMonth() === month &&
+              new Date(e.date).getFullYear() === year
+          );
+          if (event) {
+            cell.classList.add("highlight");
+            cell.title = `${event.activity} at ${event.location} (${event.time})`;
+          }
+
+          row.appendChild(cell);
+        }
+        calendarBody.appendChild(row);
+      }
+
+      function prevMonth() {
+        currentMonth--;
+        if (currentMonth < 0) {
+          currentMonth = 11;
+          currentYear--;
+        }
+        generateCalendar(currentMonth, currentYear);
+      }
+
+      function nextMonth() {
+        currentMonth++;
+        if (currentMonth > 11) {
+          currentMonth = 0;
+          currentYear++;
+        }
+        generateCalendar(currentMonth, currentYear);
+      }
+
+      function openModal(day, month, year) {
+        const modal = document.getElementById("myModal");
+        const dateInput = document.getElementById("event-date");
+        dateInput.value = `${year}-${String(month + 1).padStart(
+          2,
+          "0"
+        )}-${String(day).padStart(2, "0")}`;
+        modal.style.display = "block";
+      }
+
+      function closeModal() {
+        const modal = document.getElementById("myModal");
+        modal.style.display = "none";
+      }
+
+      function saveEvent() {
+        const date = document.getElementById("event-date").value;
+        const time = document.getElementById("event-time").value;
+        const activity = document.getElementById("event-activity").value;
+        const location = document.getElementById("event-location").value;
+
+        events.push({ date, time, activity, location });
+        generateCalendar(currentMonth, currentYear);
+        closeModal();
+      }
+
+      window.onload = function () {
+        generateCalendar(currentMonth, currentYear);
+      };
+
+      window.onclick = function (event) {
+        const modal = document.getElementById("myModal");
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <div class="header">
+      <img
+        alt="Pawsome Logo"
+        height="50"
+        src="https://storage.googleapis.com/a1aa/image/1JFpqrli0F7WOxBtpbps1cpSGDYocaGFsXvtIUJaLeJRGo0JA.jpg"
+        width="50"
+      />
+      <h1>PAWSOME</h1>
+      <div class="nav">
+        <a href="Home.html">
+          <i class="fas fa-home"> </i>
+          HOME
+        </a>
+        <a href="PetRegistration.html">
+          <i class="fas fa-paw"> </i>
+          Pet Registration
+        </a>
+        <a href="PetProfiles.html">
+          <i class="fas fa-dog"> </i>
+          Pet Profiles
+        </a>
+        <a href="DogPopulation.html">
+          <i class="fas fa-chart-bar"> </i>
+          Dog Population
+        </a>
+        <a class="active" href="PetSchedule.html">
+          <i class="fas fa-calendar-alt"> </i>
+          Pet Schedule
+        </a>
+        <a href="LostAndFound.html">
+          <i class="fas fa-search"> </i>
+          Lost and Found Program
+        </a>
+        <a href="EducationalResources.html">
+          <i class="fas fa-book"> </i>
+          Educational Resource
+        </a>
+      </div>
+    </div>
+    <div class="content">
+      <h2>PET SCHEDULE</h2>
+      <div class="calendar">
+        <div class="nav-buttons">
+          <button onclick="prevMonth()">
+            <i class="fas fa-chevron-left"> </i>
+          </button>
+          <button onclick="nextMonth()">
+            <i class="fas fa-chevron-right"> </i>
+          </button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th colspan="7" id="calendar-month"></th>
+            </tr>
+            <tr>
+              <th>Sun</th>
+              <th>Mon</th>
+              <th>Tue</th>
+              <th>Wed</th>
+              <th>Thu</th>
+              <th>Fri</th>
+              <th>Sat</th>
+            </tr>
+          </thead>
+          <tbody id="calendar-body"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="footer">
+      Provincial Veterinary Office
+      <br />
+      Email: pvetboac@yahoo.com
+      <br />
+      Contact No: (02) 811-6875, (Globe) 09454552018, (Smart) 0939-649-3217
+      <br />
+      Office Address: Bangbangalon, Boac, Marinduque
+    </div>
+    <div class="modal" id="myModal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()"> &times; </span>
+        <h2>Add Event</h2>
+        <div class="form-group">
+          <label for="event-date"> Date </label>
+          <input id="event-date" readonly="" type="text" />
+        </div>
+        <div class="form-group">
+          <label for="event-time"> Time </label>
+          <input id="event-time" type="time" />
+        </div>
+        <div class="form-group">
+          <label for="event-activity"> Activity </label>
+          <input id="event-activity" type="text" />
+        </div>
+        <div class="form-group">
+          <label for="event-location"> Location </label>
+          <input id="event-location" type="text" />
+        </div>
+        <div class="form-group">
+          <button onclick="saveEvent()">Save</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
